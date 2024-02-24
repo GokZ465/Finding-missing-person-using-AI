@@ -1,0 +1,57 @@
+ERROR:root:An error occurred while fetching data from http://localhost:8001/user_submission: 3 columns passed, passed data had 2 columns
+ERROR:root:Failed to fetch data from http://localhost:8001/user_submission. Status code: 500
+ERROR:root:An error occurred while fetching data from http://localhost:8001/user_submission: 2 columns passed, passed data had 3 columns
+ERROR:root:An error occurred while fetching data from http://localhost:8001/user_submission: 2 columns passed, passed data had 3 columns
+ERROR:root:An error occurred while fetching data from http://localhost:8001/user_submission: 2 columns passed, passed data had 3 columns
+ERROR:root:Error sending email: {'7b799192-555f-4da6-81a9-88a3b7a2c20a': (553, b'5.1.3 The recipient address <7b799192-555f-4da6-81a9-88a3b7a2c20a> is not a\n5.1.3 valid RFC 5321 address. For more information, go to\n5.1.3  https://support.google.com/a/answer/3221692 and review RFC 5321\n5.1.3 specifications. it27-20020a056a00459b00b006e4f125b0ecsm494896pfb.82 - gsmtp')}
+ERROR:root:Error sending email: {'fb09d8e9-aad6-442f-8d5a-af2b4acfc7e9': (553, b'5.1.3 The recipient address <fb09d8e9-aad6-442f-8d5a-af2b4acfc7e9> is not a\n5.1.3 valid RFC 5321 address. For more information, go to\n5.1.3  https://support.google.com/a/answer/3221692 and review RFC 5321\n5.1.3 specifications. hq20-20020a056a00681400b006e4de94c111sm504403pfb.65 - gsmtp')}
+ERROR:root:Error sending email: {'b6f66287-75b2-47fd-8c6f-3b2474c9a403': (553, b'5.1.3 The recipient address <b6f66287-75b2-47fd-8c6f-3b2474c9a403> is not a\n5.1.3 valid RFC 5321 address. For more information, go to\n5.1.3  https://support.google.com/a/answer/3221692 and review RFC 5321\n5.1.3 specifications. q17-20020a170902c75100b001dbcf96004fsm426016plq.148 - gsmtp')}
+ERROR:root:Error sending email: {'20bfc031-e0c1-486f-a587-e49937c95221': (553, b'5.1.3 The recipient address <20bfc031-e0c1-486f-a587-e49937c95221> is not a\n5.1.3 valid RFC 5321 address. For more information, go to\n5.1.3  https://support.google.com/a/answer/3221692 and review RFC 5321\n5.1.3 specifications. su6-20020a17090b534600b0029a7951c4a3sm2546670pjb.41 - gsmtp')}
+ERROR:root:Error sending email: {'283fc158-a3b8-4d47-a493-5226afb9fea1': (553, b'5.1.3 The recipient address <283fc158-a3b8-4d47-a493-5226afb9fea1> is not a\n5.1.3 valid RFC 5321 address. For more information, go to\n5.1.3  https://support.google.com/a/answer/3221692 and review RFC 5321\n5.1.3 specifications. z4-20020aa79904000000b006e10f315ac7sm492316pff.80 - gsmtp')}
+ERROR:root:Error sending email: {'70062902-c867-4858-84ab-6a3a2109e432': (553, b'5.1.3 The recipient address <70062902-c867-4858-84ab-6a3a2109e432> is not a\n5.1.3 valid RFC 5321 address. For more information, go to\n5.1.3  https://support.google.com/a/answer/3221692 and review RFC 5321\n5.1.3 specifications. gu2-20020a056a004e4200b006e465e1573esm499519pfb.74 - gsmtp')}
+ERROR:root:Error sending email: {'89b536a1-ec6e-44ad-87b3-90cf167a71ef': (553, b'5.1.3 The recipient address <89b536a1-ec6e-44ad-87b3-90cf167a71ef> is not a\n5.1.3 valid RFC 5321 address. For more information, go to\n5.1.3  https://support.google.com/a/answer/3221692 and review RFC 5321\n5.1.3 specifications. x13-20020a056a00270d00b006e134c4d6b0sm490633pfv.217 - gsmtp')}
+ERROR:root:Error sending email: {'9284c87c-dda7-4237-8482-f168991df780': (553, b'5.1.3 The recipient address <9284c87c-dda7-4237-8482-f168991df780> is not a\n5.1.3 valid RFC 5321 address. For more information, go to\n5.1.3  https://support.google.com/a/answer/3221692 and review RFC 5321\n5.1.3 specifications. f19-20020a056a00229300b006e3a9bdeb99sm498343pfe.40 - gsmtp')}
+ERROR:root:Receiver email is not a string
+ERROR:root:Receiver email is not a string
+ERROR:root:Receiver email is not a string
+ERROR:root:Receiver email is not a string
+ERROR:root:Receiver email is not a string
+ERROR:root:Receiver email is not a string
+ERROR:root:Receiver email is not a string
+ERROR:root:Receiver email is not a string
+ERROR:root:Receiver email is not a string
+ERROR:root:Receiver email is not a string
+ERROR:root:Receiver email is not a string
+ERROR:root:Receiver email is not a string
+ERROR:root:Receiver email is not a string
+ERROR:root:Receiver email is not a string
+ERROR:root:Receiver email is not a string
+ERROR:root:Receiver email is not a string
+ERROR:root:Receiver email is not a string
+ERROR:root:Receiver email is not a string
+ERROR:root:Error sending email: {'dfgd': (553, b'5.1.3 The recipient address <dfgd> is not a valid RFC 5321 address. For more\n5.1.3 information, go to\n5.1.3  https://support.google.com/a/answer/3221692 and review RFC 5321\n5.1.3 specifications. v11-20020a056a00148b00b006e4cb678d16sm636638pfu.20 - gsmtp')}
+ERROR:root:Error sending email: {'dfgd': (553, b'5.1.3 The recipient address <dfgd> is not a valid RFC 5321 address. For more\n5.1.3 information, go to\n5.1.3  https://support.google.com/a/answer/3221692 and review RFC 5321\n5.1.3 specifications. h14-20020a63df4e000000b005dc4806ad7dsm642026pgj.40 - gsmtp')}
+ERROR:root:Error sending email: {'dfgd': (553, b'5.1.3 The recipient address <dfgd> is not a valid RFC 5321 address. For more\n5.1.3 information, go to\n5.1.3  https://support.google.com/a/answer/3221692 and review RFC 5321\n5.1.3 specifications. q3-20020a17090ad38300b00298e11b600dsm726586pju.27 - gsmtp')}
+ERROR:root:Error sending email: {'dfgd': (553, b'5.1.3 The recipient address <dfgd> is not a valid RFC 5321 address. For more\n5.1.3 information, go to\n5.1.3  https://support.google.com/a/answer/3221692 and review RFC 5321\n5.1.3 specifications. o3-20020a17090aac0300b0029a75e027f0sm2688295pjq.51 - gsmtp')}
+ERROR:root:Error sending email: {'dfgd': (553, b'5.1.3 The recipient address <dfgd> is not a valid RFC 5321 address. For more\n5.1.3 information, go to\n5.1.3  https://support.google.com/a/answer/3221692 and review RFC 5321\n5.1.3 specifications. l3-20020a62be03000000b006e4432027d1sm643621pff.142 - gsmtp')}
+ERROR:root:Error sending email: {'dfgd': (553, b'5.1.3 The recipient address <dfgd> is not a valid RFC 5321 address. For more\n5.1.3 information, go to\n5.1.3  https://support.google.com/a/answer/3221692 and review RFC 5321\n5.1.3 specifications. z7-20020a1709028f8700b001db717d2dbbsm545199plo.210 - gsmtp')}
+ERROR:root:Error sending email: {'dfgd': (553, b'5.1.3 The recipient address <dfgd> is not a valid RFC 5321 address. For more\n5.1.3 information, go to\n5.1.3  https://support.google.com/a/answer/3221692 and review RFC 5321\n5.1.3 specifications. kt7-20020a170903088700b001dc38eaa7fdsm556783plb.278 - gsmtp')}
+ERROR:root:Error sending email: {'dfgd': (553, b'5.1.3 The recipient address <dfgd> is not a valid RFC 5321 address. For more\n5.1.3 information, go to\n5.1.3  https://support.google.com/a/answer/3221692 and review RFC 5321\n5.1.3 specifications. gu17-20020a056a004e5100b006e4e584ed59sm622764pfb.116 - gsmtp')}
+ERROR:root:Receiver email is not a string
+ERROR:root:Receiver email is not a string
+ERROR:root:Receiver email is not a string
+ERROR:root:Receiver email is not a string
+ERROR:root:Receiver email is not a string
+ERROR:root:Receiver email is not a string
+ERROR:root:Receiver email is not a string
+ERROR:root:Receiver email is not a string
+ERROR:root:Receiver email is not a string
+ERROR:root:Receiver email is not a string
+ERROR:root:Receiver email is not a string
+ERROR:root:Receiver email is not a string
+ERROR:root:Receiver email is not a string
+ERROR:root:Receiver email is not a string
+ERROR:root:Receiver email is not a string
+ERROR:root:Receiver email is not a string
+ERROR:root:Receiver email is not a string
+ERROR:root:Receiver email is not a string

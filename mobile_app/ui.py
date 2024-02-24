@@ -179,7 +179,7 @@ class MobileApp(QMainWindow):
             return None
 
     def save_to_db(self, entries):
-        URL = "http://localhost:8000/user_submission"
+        URL = "http://localhost:8001/user_submission"
         headers = {"Content-Type": "application/json", "Accept": "application/json"}
 
         byte_content = open(self.fileName, "rb").read()
@@ -225,41 +225,52 @@ class MobileApp(QMainWindow):
 
 app = QApplication(sys.argv)
 style = """
-        QWidget{
-            background: #262D37;
-        }
-        QLabel{
-            color: #fff;
-        }
-        QLabel#round_count_label, QLabel#highscore_count_label{
-            border: 1px solid #fff;
-            border-radius: 8px;
-            padding: 2px;
-        }
-        QPushButton
-        {
-            color: white;
-            background: #0577a8;
-            border: 1px #DADADA solid;
-            padding: 5px 10px;
-            border-radius: 2px;
-            font-weight: bold;
-            font-size: 9pt;
-            outline: none;
-        }
-        QPushButton:hover{
-            border: 1px #C6C6C6 solid;
-            color: #fff;
-            background: #0892D0;
-        }
-        QLineEdit {
-            padding: 1px;
-            color: #fff;
-            border-style: solid;
-            border: 2px solid #fff;
-            border-radius: 8px;
-        }
-    """
+    /* Main background color */
+    QWidget {
+        background-color: #262D37;
+    }
+
+    /* Text color for labels */
+    QLabel {
+        color: #fff;
+    }
+
+    /* Styling for specific labels */
+    QLabel#round_count_label,
+    QLabel#highscore_count_label {
+        border: 1px solid #fff;
+        border-radius: 8px;
+        padding: 5px; /* Increased padding for better spacing */
+        margin: 5px; /* Added margin for separation */
+    }
+
+    /* Button styles */
+    QPushButton {
+        color: #ffffff;
+        background-color: #0577a8;
+        border: 2px solid #DADADA; /* Increased border width for better visibility */
+        padding: 6px 20px;
+        border-radius: 15px; /* Rounded border */
+        font-weight: bold;
+        font-size: 10pt; /* Slightly increased font size */
+        outline: none;
+    }
+
+    QPushButton:hover {
+        border: 2px solid #C6C6C6;
+        background-color: #0892D0;
+    }
+
+    /* Input field styles */
+    QLineEdit {
+        padding: 8px;
+        color: #fff;
+       border: 2px solid #dc3545;
+        border-radius: 8px;
+        background-color: #3B4656; /* Darker background for input fields */
+    }
+"""
+
 app.setStyleSheet(style)
 w = MobileApp()
 sys.exit(app.exec())

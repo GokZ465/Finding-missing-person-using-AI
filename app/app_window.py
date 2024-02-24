@@ -3,6 +3,7 @@ import requests
 import json
 import base64
 import io
+import logging
 
 from PIL import Image
 import numpy as np
@@ -22,6 +23,8 @@ from PyQt5.QtWidgets import QMessageBox, QListWidget, QLabel, QLineEdit
 from new_case import NewCase
 from train_model import train
 from match_faces import match
+from send_email import send_email 
+logging.basicConfig(filename='app.log', level=logging.INFO, format='%(asctime)s - %(levelname)s: %(message)s')
 
 
 class AppWindow(QMainWindow):
@@ -84,7 +87,7 @@ class AppWindow(QMainWindow):
             QMessageBox.about(self, "Error", output["message"])
 
     def view_confirmed_cases(self):
-        URL = "http://localhost:8000/get_confirmed_cases?submitted_by=" + self.user
+        URL = "http://localhost:8001/get_confirmed_cases?submitted_by=" + self.user
         try:
             cases = json.loads(requests.get(URL).text)
             if cases == []:
@@ -97,7 +100,7 @@ class AppWindow(QMainWindow):
             QMessageBox.about(self, "Something went wrong", str(e))
 
     def view_submitted_cases(self):
-        URL = "http://localhost:8000/get_submitted_cases?submitted_by=" + self.user
+        URL = "http://localhost:8001/get_submitted_cases?submitted_by=" + self.user
         try:
             cases = json.loads(requests.get(URL).text)
             if cases == []:
@@ -128,6 +131,8 @@ class AppWindow(QMainWindow):
                 + str(case_detail[4])
                 + "\n Mobile: "
                 + str(case_detail[5])
+                + "\n Email: "
+                + str(case_detail[11])
                 + "\n Status: "
                 + list(
                     map(
@@ -164,47 +169,58 @@ class AppWindow(QMainWindow):
         for case_id, submission_list in result.items():
             # Change status of Matched Case
             requests.get(
-                f"http://localhost:8000/change_found_status?case_id='{case_id}'"
+                f"http://localhost:8001/change_found_status?case_id='{case_id}'"
             )
+            
+            print("Value of case_id:", case_id)
             case_details = self.get_details(case_id, "case")
-            for submission_id in submission_list:
-                submission_details = self.get_details(
-                    submission_id, "public_submission"
-                )
-                image = self.decode_base64(case_details[0][2])
+            
+            
+            
+            
+           
+                    
+            for submission_id in submission_list:           
+                if True:
+                    submission_details = self.get_details(submission_id, "public_submission")
+                    email = case_details[0][4]
+                    send_email(email, "Match Found", "A match has been found for your submitted case.")
+                    #image = self.decode_base64(case_details[0][2])
 
-                item = QStandardItem(
-                    " Name: "
-                    + case_details[0][0]
-                    + "\n Father's Name: "
-                    + case_details[0][1]
-                    + "\n Age: "
-                    + str(case_details[0][4])
-                    + "\n Mobile: "
-                    + str(case_details[0][3])
-                    + "\n Location: "
-                    + submission_details[0][0]
-                    # "\n Matched Date" + submission_details[0][1]
-                )
-                image = QtGui.QImage(
-                    image,
-                    image.shape[1],
-                    image.shape[0],
-                    image.shape[1] * 3,
-                    QtGui.QImage.Format_RGB888,
-                )
-                icon = QPixmap(image)
-                item.setIcon(QIcon(icon))
-                model.appendRow(item)
-
+                    item = QStandardItem(
+                        " Name: "
+                        + case_details[0][0]
+                        + "\n Father's Name: "
+                        + case_details[0][1]
+                        + "\n Age: "
+                        + str(case_details[0][5])
+                        + "\n Mobile: "
+                        + str(case_details[0][3])
+                        + "\n Location: "
+                        
+                    )
+                    #image = QtGui.QImage(
+                       # image,
+                       # image.shape[1],
+                       # image.shape[0],
+                       # image.shape[1] * 3,
+                       # QtGui.QImage.Format_RGB888,
+                    #)
+                    #icon = QPixmap(image)
+                    #item.setIcon(QIcon(icon))
+                    #model.appendRow(item)
+                    # Send email
+                    
+                else:
+                    print("Invalid submission_info:", submission_info)
         list_.setModel(model)
         list_.show()
 
     def get_details(self, case_id: str, type: str):
         if type == "public_submission":
-            URL = f"http://localhost:8000/get_user_details?case_id='{case_id}'"
+            URL = f"http://localhost:8001/get_user_details?case_id='{case_id}'"
         else:
-            URL = f"http://localhost:8000/get_case_details?case_id='{case_id}'"
+            URL = f"http://localhost:8001/get_case_details?case_id='{case_id}'"
         try:
             result = requests.get(URL)
             if result.status_code == 200:
@@ -221,6 +237,12 @@ class AppWindow(QMainWindow):
         img = np.array(Image.open(io.BytesIO(base64.b64decode(img))))
         return img
 
+def send_email_log(self, receiver_email, subject, body):
+        try:
+            self.send_email_log(email, "Match Found", "A match has been found for your submitted case.")
+            logging.info("Email sent successfully")
+        except Exception as e:
+            logging.error(f"Error sending email: {str(e)}")
 
 if __name__ == "__main__":
 

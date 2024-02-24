@@ -20,6 +20,7 @@ class NewCaseDetail(BaseModel):
     face_encoding: list
     image: str
     case_id: str
+    email: str
 
 
 class UserSubmission(BaseModel):
@@ -57,10 +58,11 @@ def new_case(user_info: NewCaseDetail):
     father_name = user_info.father_name
     face_encoding = user_info.face_encoding
     image = user_info.image
+    email = user_info.email
     case_id = user_info.case_id
     query = f"insert into submitted_cases(submitted_by, name, father_name, age,\
-             mobile, face_encoding, status, image, case_id) values('{submitted_by}', '{name}', '{father_name}',\
-             '{age}', '{mobile}', '{face_encoding}', 'NF', '{image}', '{case_id}')"
+             mobile, face_encoding, status, image, email, case_id) values('{submitted_by}', '{name}', '{father_name}',\
+             '{age}', '{mobile}', '{face_encoding}', 'NF', '{image}',  '{email}','{case_id}')"
     with PostgresConnection() as conn:
         cursor = conn.cursor()
         cursor.execute(query)
@@ -96,11 +98,11 @@ def user_submission(user_submission: UserSubmission):
     mobile = user_submission.mobile
     image = user_submission.image
     face_encoding = user_submission.face_encoding
-    sub_id = user_submission.sub_id
+    sub_id = user_submission.sub_id 
     status = "NC"
     query = f"insert into user_submissions(id, submitted_by, face_encoding,\
-              location, mobile, image, status) values('{sub_id}', '{name}', '{face_encoding}',\
-              '{location}', '{mobile}', '{image}', 'NR')"
+              location, mobile, image,  status) values('{sub_id}', '{name}', '{face_encoding}',\
+              '{location}', '{mobile}', '{image}',  'NR')"  # Modified query
     with PostgresConnection() as conn:
         cursor = conn.cursor()
         cursor.execute(query)
@@ -109,7 +111,7 @@ def user_submission(user_submission: UserSubmission):
 
 @app.get("/user_submission")
 def get_usr_submission():
-    query = f"select id, face_encoding from user_submissions"
+    query = f"select case_id, face_encoding from submitted_cases"
     with PostgresConnection() as conn:
         cursor = conn.cursor()
         cursor.execute(query)
@@ -118,7 +120,7 @@ def get_usr_submission():
 
 @app.get("/get_case_details")
 def case_details(case_id: str):
-    query = f"select name, father_name, image, mobile, age from submitted_cases where case_id={case_id}"
+    query = f"select name, father_name, image, mobile, email, age from submitted_cases where case_id={case_id}"
     with PostgresConnection() as conn:
         cursor = conn.cursor()
         cursor.execute(query)
@@ -156,4 +158,4 @@ def change_found_status(case_id: str):
 
 if __name__ == "__main__":
     create()
-    uvicorn.run("main:app", host="127.0.0.1", port=8000, log_level="info")
+    uvicorn.run("main:app", host="127.0.0.1", port=8001, log_level="info")

@@ -73,13 +73,14 @@ class NewCase(QMainWindow):
 
         save_button = QPushButton("Save", self)
         save_button.resize(150, 50)
-        save_button.move(self._x_axis, 350)
+        save_button.move(self._x_axis, 400)        
         save_button.clicked.connect(self.save)
 
         self.get_name()
         self.get_age()
         self.get_fname()
         self.get_mob()
+        self.get_email()
         self.show()
 
     def get_name(self):
@@ -91,6 +92,18 @@ class NewCase(QMainWindow):
         self.name_label.move(self._x_axis, 100)
         self.name = QLineEdit(self)
         self.name.move(self._x_axis + 50, 100)
+
+    def get_email(self):
+        """
+        This method reads the email from text field in GUI.
+        """
+        self.email_label = QLabel(self)
+        self.email_label.setText("Email:")
+        self.email_label.move(self._x_axis, 300)
+        self.email = QLineEdit(self)
+        self.email.move(self._x_axis + 50, 300)
+
+        
 
     def get_age(self):
         """
@@ -188,17 +201,19 @@ class NewCase(QMainWindow):
             and self.mob.text() != ""
             and self.name != ""
             and self.father_name != ""
+            and self.email.text() != ""
         ):
             entries["age"] = self.age.text()
             entries["name"] = self.name.text()
             entries["father_name"] = self.father_name.text()
             entries["mobile"] = self.mob.text()
+            entries["email"] = self.email.text()
             return entries
         else:
             return None
 
     def save_to_db(self, entries):
-        URL = "http://localhost:8000/new_case"
+        URL = "http://localhost:8001/new_case"
         headers = {"Content-Type": "application/json", "Accept": "application/json"}
 
         byte_content = open(self.fileName, "rb").read()

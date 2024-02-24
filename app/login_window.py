@@ -18,7 +18,7 @@ class LoginWindow(QMainWindow):
         self.title = "Login"
         self.width = 800
         self.height = 600
-        self.URL = "http://localhost:8000"
+        self.URL = "http://localhost:8001"
         self.icon_path = "../resources/icon.png"
         self.username = None
         self.password = None
@@ -115,10 +115,12 @@ style = """
             padding: 1px;
             color: #fff;
             border-style: solid;
-            border: 2px solid #fff;
+            border: 2px solid #dc3545;
             border-radius: 8px;
         }
     """
+
+
 app.setStyleSheet(style)
 w = LoginWindow()
 sys.exit(app.exec())

@@ -3,24 +3,33 @@ import requests
 import json
 import pickle
 from collections import defaultdict
+import logging
 
 import pandas as pd
 import numpy as np
 
+# Set up logging
+logging.basicConfig(filename='error.log', level=logging.ERROR)
+
 
 def get_user_submitted_data(status="NR"):
-    url = "http://localhost:8000/user_submission"
+    url = "http://localhost:8001/user_submission"
     try:
         result = requests.get(url)
         if result.status_code == 200:
             result = json.loads(result.text)
             d1 = pd.DataFrame(result, columns=["label", "face_encoding"])
+            d1 = d1[["label", "face_encoding"]]
             d2 = pd.DataFrame(
                 d1.pop("face_encoding").values.tolist(), index=d1.index
             ).rename(columns=lambda x: "fe_{}".format(x + 1))
             df = d1.join(d2)
             return df
+        else:
+            logging.error(f"Failed to fetch data from {url}. Status code: {result.status_code}")
+            return None
     except Exception as e:
+        logging.error(f"An error occurred while fetching data from {url}: {e}")
         return None
 
 

@@ -16,7 +16,7 @@ def get_train_data(submitted_by: str):
         submitted_by: str
     """
     URL = (
-        "http://localhost:8000/get_training_data?submitted_by="
+        "http://localhost:8001/get_training_data?submitted_by="
         + submitted_by
         + "&status=NF"
     )
