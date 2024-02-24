@@ -1,15 +1,18 @@
 import smtplib
+import os
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import logging
+from dotenv import load_dotenv
+load_dotenv()
 
 # Set up logging configuration
 logging.basicConfig(filename='email.log', level=logging.INFO, format='%(asctime)s - %(levelname)s: %(message)s')
 
 def send_email(receiver_email, subject, body):
     # Check if sender_email is a string
-    sender_email = "gokul465eswaran@gmail.com"
-    sender_password = "atmzhywjibkcmbal"
+    sender_email =  os.getenv("sender_email")
+    sender_password = os.getenv("sender_password")
     if not isinstance(sender_email, str):
         logging.error("Sender email is not a string")
         return
