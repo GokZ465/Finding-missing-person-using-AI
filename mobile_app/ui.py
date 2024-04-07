@@ -9,7 +9,7 @@ from PyQt5 import QtGui
 from PyQt5.QtGui import QPixmap, QImage, QImageReader
 from PyQt5.QtWidgets import QMainWindow, QFileDialog, QPushButton, QApplication
 from PyQt5.QtWidgets import QInputDialog, QLabel, QLineEdit, QMessageBox
-
+from PyQt5.QtCore import Qt
 # from utils import generate_uuid
 
 
@@ -79,12 +79,16 @@ class MobileApp(QMainWindow):
         """
         This method reads the input name from text field in GUI.
         """
+        locatex_label = QLabel(self)
+        locatex_label.setText("<h1>LocateX</h1>")
+        locatex_label.setAlignment(Qt.AlignCenter)
+        locatex_label.move(150, 20)
         self.name_label = QLabel(self)
         self.name_label.setText("Your Name:")
-        self.name_label.move(170, 20)
+        self.name_label.move(80, 80)
 
         self.name = QLineEdit(self)
-        self.name.move(150, 50)
+        self.name.move(150, 80)
 
     def get_mobile_num(self):
         """
@@ -92,7 +96,7 @@ class MobileApp(QMainWindow):
         """
         self.mobile_label = QLabel(self)
         self.mobile_label.setText("Mobile:")
-        self.mobile_label.move(170, 90)
+        self.mobile_label.move(80, 120)
 
         self.mobile = QLineEdit(self)
         self.mobile.move(150, 120)
@@ -103,10 +107,10 @@ class MobileApp(QMainWindow):
         """
         self.location_label = QLabel(self)
         self.location_label.setText("Location:")
-        self.location_label.move(150, 160)
+        self.location_label.move(80, 160)
 
         self.location = QLineEdit(self)
-        self.location.move(150, 190)
+        self.location.move(150, 160)
 
     def get_facial_points(self, image_url) -> list:
         """
@@ -225,51 +229,65 @@ class MobileApp(QMainWindow):
 
 app = QApplication(sys.argv)
 style = """
-    /* Main background color */
     QWidget {
-        background-color: #262D37;
-    }
+    background-color: #2c3e50;
+    background-image: url('https://www.lifewire.com/thmb/Kv2e3RqYmPj4iya7GBgW8SyTP_Q=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/GettyImages-1421460958-e3be73d7975343d7986e839fefe44be9.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+}
 
-    /* Text color for labels */
-    QLabel {
-        color: #fff;
-    }
+QLabel {
+    color: #ecf0f1;
+}
 
-    /* Styling for specific labels */
-    QLabel#round_count_label,
-    QLabel#highscore_count_label {
-        border: 1px solid #fff;
-        border-radius: 8px;
-        padding: 5px; /* Increased padding for better spacing */
-        margin: 5px; /* Added margin for separation */
-    }
+QListView {
+    background-color: #34495e;
+}
 
-    /* Button styles */
-    QPushButton {
-        color: #ffffff;
-        background-color: #0577a8;
-        border: 2px solid #DADADA; /* Increased border width for better visibility */
-        padding: 6px 20px;
-        border-radius: 15px; /* Rounded border */
-        font-weight: bold;
-        font-size: 10pt; /* Slightly increased font size */
-        outline: none;
-    }
+QPushButton {
+    color: #fff;
+    background-color: #2980b9;
+    border: 1px solid #3498db;
+    border-radius: 5px;
+    padding: 8px 16px;
+    font-weight: bold;
+    font-size: 10pt;
+}
 
-    QPushButton:hover {
-        border: 2px solid #C6C6C6;
-        background-color: #0892D0;
-    }
+QPushButton:hover {
+    background-color: #3498db;
+    border-color: #2980b9;
+}
 
-    /* Input field styles */
-    QLineEdit {
-        padding: 8px;
-        color: #fff;
-       border: 2px solid #dc3545;
-        border-radius: 8px;
-        background-color: #3B4656; /* Darker background for input fields */
-    }
+QLineEdit {
+    padding: 6px;
+    color: #fff;
+    background-color: #34495e;
+    border: 2px solid #3498db;
+    border-radius: 5px;
+}
+
+QMessageBox {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    border: 2px solid #3498db;
+}
+
+QMessageBox QPushButton {
+    color: #fff;
+    background-color: #2980b9;
+    border: 1px solid #3498db;
+    border-radius: 5px;
+    padding: 6px 12px;
+    font-weight: bold;
+}
+
+QMessageBox QPushButton:hover {
+    background-color: #3498db;
+    border-color: #2980b9;
+}
 """
+
 
 app.setStyleSheet(style)
 w = MobileApp()

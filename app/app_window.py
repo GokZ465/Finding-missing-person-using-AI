@@ -40,7 +40,9 @@ class AppWindow(QMainWindow):
     def initialize(self):
         self.setWindowTitle(self.title)
         self.setFixedSize(self.width, self.height)
-
+        locatex_label = QLabel("<h1>LocateX</h1>", self)
+        locatex_label.setAlignment(Qt.AlignCenter)
+        locatex_label.setGeometry(0, 10, self.width, 50)
         button_upload = QPushButton("New Case", self)
         button_upload.move(570, 50)
         button_upload.resize(150, 50)

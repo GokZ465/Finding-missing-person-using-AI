@@ -29,6 +29,10 @@ class LoginWindow(QMainWindow):
         self.setWindowIcon(QtGui.QIcon(self.icon_path))
         self.setWindowTitle(self.title)
         self.setFixedSize(self.width, self.height)
+
+        locatex_label = QLabel("<h1>LocateX</h1>", self)
+        locatex_label.setAlignment(Qt.AlignCenter)
+        locatex_label.setGeometry(0, 20, self.width, 50)
         self.get_username()
         self.get_password()
 

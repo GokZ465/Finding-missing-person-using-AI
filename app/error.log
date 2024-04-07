@@ -55,3 +55,5 @@ ERROR:root:Receiver email is not a string
 ERROR:root:Receiver email is not a string
 ERROR:root:Receiver email is not a string
 ERROR:root:Receiver email is not a string
+ERROR:root:Error sending email: (534, b'5.7.9 Please log in with your web browser and then try again. For more\n5.7.9 information, go to\n5.7.9  https://support.google.com/mail/?p=WebLoginRequired a8-20020a170902b58800b001d9b537ad0bsm4899304pls.275 - gsmtp')
+ERROR:root:Error sending email: (534, b'5.7.9 Please log in with your web browser and then try again. For more\n5.7.9 information, go to\n5.7.9  https://support.google.com/mail/?p=WebLoginRequired z3-20020a170902708300b001dcc0d06959sm4904224plk.245 - gsmtp')
